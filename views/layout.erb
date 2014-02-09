@@ -1,0 +1,40 @@
+<html ng-app = "myApp">
+<!-- <html ng-app> -->
+<head>
+  <title>Shortly Client</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.js"></script>
+  <script src="angular-route.js"></script>
+  <script src="/client/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+  <h1>Shortly</h1>
+      <div class="navigation">
+      <ul>
+        <li><a href="/links" class="index">>All Links</a></li>
+        <li><a href="/" class="create">Shorten</a></li>
+        <li><a href="/" class="lastVisit">Show Latest</a></li>
+        <li><input class="search"></input></li> 
+      </ul>
+      </div>
+      <div id="container"></div>'
+
+  <form ng-controller = "submitController" ng-submit="createLink()"> 
+    <input class="text" type="text" ng-model="text" name="url"> 
+    <input type="submit" value="Shorten"> 
+</form> 
+    <!-- <img class="spinner" src="/spiffygif_46x46.gif">  -->
+    <div class="message"></div>
+<!--   <div ng-controller='MyController'>>
+    <input type = 'text' ng-model="yourname" placeholder = "Please enter your name">
+    <h1>Hi, {{ yourname }}!</h1>
+  </div> -->  
+  
+  <div>
+    <div ng-view></div>
+  </div>
+
+  <!-- <%= yield %> -->
+</body>
+</html>

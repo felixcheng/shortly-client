@@ -1,0 +1,36 @@
+
+<h2 ng-controller = "linksController"> </h2>
+<!-- <!-- <pre> {links |json} </pre>
+
+<!-- <div class='link' ng-repeat= "link in links"> -->
+
+<!-- <img src="/redirect_icon.png"/>
+<div class="info">
+  <div class="visits"><span class="count"><%= visits %></span>Visits</div>
+  <div class="title"><%= title %></div> 
+  <div class="original"><%= url %></div> 
+  <a href="<%= base_url %>/<%= code %>"><%= base_url %>/<%= code %></a>
+</div>' --> 
+<ul>
+  <button ng-click='byFilter="create_at"'>Filter By created</button>
+  <button ng-click='byFilter="visits"'>Filter By visits</button>
+  <input type='text' ng-model='search' placeholder='Search'></input>
+
+  <div ng-repeat= 'link in links | filter:search| orderBy:byFilter' class='link'>
+    <img src="/redirect_icon.png"/>
+    <div class="title"> {{link.title}} </div> 
+    <div class="visits"><span class="count">{{link.visits}}</span>Visits</div>
+    <div class="original">{{link.url}}</div> 
+    <div class="original">{{link.created_at | date}}</div> 
+    <a href="{{ link.base_url }}/{{link.code}} " target="_self">{{ link.url }} </a>
+  </div>     
+</ul>
+
+<!--   <div class="visits"><span class="count"><%= {{link.visits}} %></span>Visits</div>
+  <div class="title"><%= {{link.title}} %></div> 
+    <div class="original"><%= {{link.url}} %></div> 
+  <a href="<%= base_url %>/<%= code %>"><%= {{link.base_url}} %>/<%= code %></a>
+
+    <div class="original"><%= {{link.url}} %></div> 
+    <a href="<%= base_url %>/<%= code %>"><%= {{link.base_url}} %>/<%= code %></a>
+  </li> -->
